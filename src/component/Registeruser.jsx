@@ -14,10 +14,13 @@ const Registeruser = () => {
 
   const onsubmit = async (data) => {
     console.log(data);
-    let res = await axios.post("http://localhost:3000/auth/register", {
-      ...data,
-      role: "user",
-    });
+    let res = await axios.post(
+      "https://backend-o6x8.onrender.com/auth/register",
+      {
+        ...data,
+        role: "user",
+      }
+    );
     console.log(res.data);
     setusersave(res.data.user);
     setusersave(res.data.user.role);

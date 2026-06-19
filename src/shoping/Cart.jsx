@@ -12,7 +12,7 @@ const Cart = () => {
   const [products, setProducts] = useState([]);
   const getallcart = async () => {
     const res = await axios.get(
-      `http://localhost:3000/products/allcart/${usersave._id}`
+      `https://backend-o6x8.onrender.com/products/allcart/${usersave._id}`
     );
 
     setCart(res.data);
@@ -44,7 +44,7 @@ const Cart = () => {
   const handlePayment = async () => {
     try {
       const { data: order } = await axios.post(
-        "http://localhost:3000/api/payment/create-order",
+        "https://backend-o6x8.onrender.com/api/payment/create-order",
         {
           totalPrice: totalPrice,
         }
@@ -92,11 +92,14 @@ const Cart = () => {
   };
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/products/delete/${id}`, {
-        headers: {
-          Authorization: `Bearer ${usersave?.token}`,
-        },
-      });
+      await axios.delete(
+        `https://backend-o6x8.onrender.com/products/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${usersave?.token}`,
+          },
+        }
+      );
       toast.success("product delete successfully 🎉");
 
       setProducts(products.filter((product) => product._id !== id));

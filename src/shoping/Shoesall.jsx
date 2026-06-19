@@ -10,7 +10,7 @@ const Shoesall = () => {
   const [card, setcard] = useState([]);
 
   const getCard = async () => {
-    const res = await axios.get("http://localhost:3000/products", {
+    const res = await axios.get("https://backend-o6x8.onrender.com/products", {
       headers: {
         Authorization: `Bearer ${usersave?.token}`,
       },

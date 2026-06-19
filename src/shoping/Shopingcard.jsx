@@ -12,7 +12,9 @@ const Shopingcard = () => {
   useEffect(() => {
     const getproduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/products/${id}`);
+        const res = await axios.get(
+          `https://backend-o6x8.onrender.com/products/${id}`
+        );
 
         setProduct(res.data.products);
         console.log(res.data);
@@ -27,7 +29,7 @@ const Shopingcard = () => {
   const addToCart = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/products/add-to-cart",
+        "https://backend-o6x8.onrender.com/products/add-to-cart",
         {
           userId: usersave._id,
           productId: product._id,

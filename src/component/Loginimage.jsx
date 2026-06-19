@@ -14,10 +14,13 @@ const Loginimage = () => {
 
   const onsubmit = async (data) => {
     try {
-      let res = await axios.post("http://localhost:3000/auth/login", {
-        ...data,
-        role: "admin",
-      });
+      let res = await axios.post(
+        "https://backend-o6x8.onrender.com/auth/login",
+        {
+          ...data,
+          role: "admin",
+        }
+      );
 
       const userData = {
         ...res.data.user,

@@ -12,7 +12,7 @@ const AddProduct = () => {
   const onSubmit = async (data) => {
     console.log(data);
     const res = await axios.post(
-      "http://localhost:3000/products/create",
+      "https://backend-o6x8.onrender.com/products/create",
 
       data,
 

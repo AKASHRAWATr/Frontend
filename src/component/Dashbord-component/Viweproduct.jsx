@@ -13,11 +13,14 @@ const Viweproduct = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/products/", {
-          headers: {
-            Authorization: `Bearer ${usersave?.token}`,
-          },
-        });
+        const res = await axios.get(
+          "https://backend-o6x8.onrender.com/products/",
+          {
+            headers: {
+              Authorization: `Bearer ${usersave?.token}`,
+            },
+          }
+        );
         console.log(res);
         setProducts(res.data.products);
         // console.log("usersave:", usersave);
@@ -31,11 +34,14 @@ const Viweproduct = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/products/delete/${id}`, {
-        headers: {
-          Authorization: `Bearer ${usersave?.token}`,
-        },
-      });
+      await axios.delete(
+        `https://backend-o6x8.onrender.com/products/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${usersave?.token}`,
+          },
+        }
+      );
       toast.success("product delete successfully 🎉");
 
       setProducts(products.filter((product) => product._id !== id));

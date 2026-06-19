@@ -15,11 +15,14 @@ const Edit = () => {
   useEffect(() => {
     const getProductById = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/products/${id}`, {
-          headers: {
-            Authorization: `Bearer ${usersave?.token}`,
-          },
-        });
+        const res = await axios.get(
+          `https://backend-o6x8.onrender.com/products/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${usersave?.token}`,
+            },
+          }
+        );
 
         console.log(res.data);
         console.log(res);
@@ -35,11 +38,15 @@ const Edit = () => {
 
   const onSubmit = async (data) => {
     try {
-      await axios.patch(`http://localhost:3000/products/edit/${id}`, data, {
-        headers: {
-          Authorization: `Bearer ${usersave?.token}`,
-        },
-      });
+      await axios.patch(
+        `https://backend-o6x8.onrender.com/products/edit/${id}`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${usersave?.token}`,
+          },
+        }
+      );
 
       toast.success("Product Updated Successfully 🎉");
 
